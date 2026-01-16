@@ -21,7 +21,7 @@ class EnhancedJsonLexer(RegexLexer):
         'root': [
             # Eventual non-JSON data prefix followed by actual JSON body.
             (
-                fr'({PREFIX_REGEX})' + r'((?:[{\["]|true|false|null|-?\d).+)',
+                fr'({PREFIX_REGEX})' + r'((?:[{\["]|true|false|null|-?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?).*)',
                 bygroups(PREFIX_TOKEN, using(JsonLexer))
             ),
             # JSON body.
