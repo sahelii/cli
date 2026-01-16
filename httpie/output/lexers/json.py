@@ -20,9 +20,8 @@ class EnhancedJsonLexer(RegexLexer):
     tokens = {
         'root': [
             # Eventual non-JSON data prefix followed by actual JSON body.
-            # FIX: data prefix + number (integer or float) is not correctly handled.
             (
-                fr'({PREFIX_REGEX})' + r'((?:[{\["]|true|false|null).+)',
+                fr'({PREFIX_REGEX})' + r'((?:[{\["]|true|false|null|-?\d).+)',
                 bygroups(PREFIX_TOKEN, using(JsonLexer))
             ),
             # JSON body.

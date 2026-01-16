@@ -28,12 +28,13 @@ TEST_JSON_XXSI_PREFIXES = [
     '}',
 ]
 TEST_JSON_VALUES = [
-    # FIXME: missing int & float
     {},
     {'a': 0, 'b': 0},
     [],
     ['a', 'b'],
     'foo',
+    42,
+    3.14,
     True,
     False,
     None,
